@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "118609436441",
+    "project_id": "jihc-flew",
+    "storage_bucket": "jihc-flew.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118609436441:android:a7fc1bd9dfb49f4556af88",
+        "android_client_info": {
+          "package_name": "com.example.jihc_volunteers_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118609436441-u1gm4r9dkef08tgporatm1uq2avm29dd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jihc_volunteers_app",
+            "certificate_hash": "b8e1d03ca3425f03ac9b2dd4f2f4ecd1296e8280"
+          }
+        },
+        {
+          "client_id": "118609436441-0knbidml5phfpeuvrt3u93q6j1m58h3g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE2vO392oVDPKlMJGwePeAUKQ1w7M3gok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118609436441-0knbidml5phfpeuvrt3u93q6j1m58h3g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

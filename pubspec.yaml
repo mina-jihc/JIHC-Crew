@@ -1,0 +1,39 @@
+name: jihc_volunteers_app
+description: "A new Flutter project."
+publish_to: "none"
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.11.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cloud_firestore: any
+  cupertino_icons: ^1.0.8
+  firebase_auth: any
+  firebase_core: any
+  google_sign_in: any
+  image_picker: any
+  intl: any
+  shared_preferences: any
+  http: ^1.6.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: "^0.13.1" # Пакет осы блокқа ауыстырылды
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/brand/jihc_logo.jpg
+
+# Конфигурация блогы жалғыз болып ең шетте қалады
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/app_icon.png"
+  adaptive_icon_background: "#2A9D8F"
+  adaptive_icon_foreground: "assets/images/app_icon.png"

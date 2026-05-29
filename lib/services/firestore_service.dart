@@ -231,7 +231,7 @@ class FirestoreService {
     ) {
       final Map<String, dynamic>? data = snapshot.data();
       if (snapshot.exists && data != null) {
-        return UserModel.fromMap(snapshot.id, data);
+        return UserModel.fromFirestore(snapshot.id, data);
       }
       final User? firebaseUser = _auth.currentUser;
       if (firebaseUser != null && firebaseUser.uid == uid) {
@@ -260,6 +260,13 @@ class FirestoreService {
     );
     final DocumentSnapshot<Map<String, dynamic>> snapshot = await doc.get();
     if (snapshot.exists) {
+      final Map<String, dynamic>? data = snapshot.data();
+      if (data?['uid'] != firebaseUser.uid) {
+        await doc.set(
+          <String, dynamic>{'uid': firebaseUser.uid},
+          SetOptions(merge: true),
+        );
+      }
       return;
     }
 
@@ -269,7 +276,7 @@ class FirestoreService {
       email: firebaseUser.email ?? '',
       photoUrl: firebaseUser.photoURL,
     );
-    await doc.set(userModel.toMap());
+    await doc.set(userModel.toFirestore());
   }
 
   Future<UserModel?> getUserProfile(String uid) async {
@@ -282,7 +289,7 @@ class FirestoreService {
         .get();
     final Map<String, dynamic>? data = snapshot.data();
     if (snapshot.exists && data != null) {
-      return UserModel.fromMap(snapshot.id, data);
+      return UserModel.fromFirestore(snapshot.id, data);
     }
 
     final User? firebaseUser = _auth.currentUser;
@@ -326,7 +333,7 @@ class FirestoreService {
         .map((QuerySnapshot<Map<String, dynamic>> snapshot) {
       return snapshot.docs
           .map((QueryDocumentSnapshot<Map<String, dynamic>> doc) {
-            return UserModel.fromMap(doc.id, doc.data());
+            return UserModel.fromFirestore(doc.id, doc.data());
           })
           .toList();
     });

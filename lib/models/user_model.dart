@@ -52,7 +52,12 @@ class UserModel {
   }
 
   Map<String, dynamic> toMap() {
+    return toFirestore();
+  }
+
+  Map<String, dynamic> toFirestore() {
     final Map<String, dynamic> map = <String, dynamic>{
+      'uid': uid,
       'displayName': displayName,
       'email': email,
       'tasksCompleted': tasksCompleted,
@@ -77,8 +82,12 @@ class UserModel {
   }
 
   factory UserModel.fromMap(String uid, Map<String, dynamic> map) {
+    return UserModel.fromFirestore(uid, map);
+  }
+
+  factory UserModel.fromFirestore(String uid, Map<String, dynamic> map) {
     return UserModel(
-      uid: uid,
+      uid: map['uid'] as String? ?? uid,
       displayName: map['displayName'] as String? ?? 'JIHC Student',
       email: map['email'] as String? ?? '',
       photoUrl: map['photoUrl'] as String?,
